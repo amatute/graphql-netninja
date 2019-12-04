@@ -10,7 +10,8 @@ const {
   GraphQLList
 } = graphql;
 
-// dummy data
+// dummy data z7fojOVV8J8E5fWv
+// mongodb+srv://amatute:<password>@cluster0-ygzug.mongodb.net/test?retryWrites=true&w=majority
 
 const books = [
   {name: 'Name of the Wind', genre: 'Fantasy', id: '1', authorId: '1'},
@@ -73,6 +74,18 @@ const RootQuery = new GraphQLObjectType({
       args:{id:{type: GraphQLID}},
       resolve(parent, args){
         return _.find(authors, {id: args.id});
+      }
+    },
+    books:{
+      type: new GraphQLList(BookType),
+      resolve(parent, args){
+        return books;
+      }
+    },
+    authors:{
+      type: new GraphQLList(AuthorType),
+      resolve(parent, args){
+        return authors;
       }
     }
   }
