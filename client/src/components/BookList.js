@@ -18,8 +18,8 @@ const BookList = () => {
 
   return (
     <div>
-      <ul>
-        { displayBooks() }
+      <ul id="book-list">
+        {displayBooks()}
       </ul>
       <BookDetails bookId={bookSelected}/>
     </div>
